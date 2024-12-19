@@ -1,7 +1,7 @@
 package githuboutput_test
 
 import (
-	"io/ioutil"
+	"io"
 	"os"
 	"testing"
 
@@ -35,7 +35,7 @@ func TestWriter_WriteMap(t *testing.T) {
 		file, err := os.Open("./test.txt")
 		require.NoError(t, err)
 		defer file.Close()
-		content, err := ioutil.ReadAll(file)
+		content, err := io.ReadAll(file)
 		require.NoError(t, err)
 		require.Equal(t, "key=value\n", string(content))
 	})
