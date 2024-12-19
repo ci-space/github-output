@@ -36,3 +36,17 @@ func main() {
     })
 }
 ```
+
+### Write when output is available
+
+```go
+package main
+
+import githuboutput "github.com/ci-space/github-output"
+
+func main() {
+	githuboutput.WhenAvailable(func() error {
+        return githuboutput.Write("key", "value")
+	})
+}
+```
