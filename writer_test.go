@@ -18,7 +18,7 @@ func TestWriter_WriteMap(t *testing.T) {
 			"key": "value",
 		})
 		require.Error(t, err)
-		require.Equal(t, "failed to get output filename: key GITHUB_OUTPUT not set", err.Error())
+		require.Equal(t, "failed to get output filename from env variable GITHUB_OUTPUT: environment variable not found", err.Error())
 	})
 
 	t.Run("success", func(t *testing.T) {

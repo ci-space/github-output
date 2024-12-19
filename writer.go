@@ -17,7 +17,7 @@ func NewWriter(env Env) *Writer {
 func (w *Writer) WriteMap(values map[string]string) error {
 	output, err := w.env.Get(EnvName)
 	if err != nil {
-		return fmt.Errorf("failed to get output filename: %w", err)
+		return fmt.Errorf("failed to get output filename from env variable %s: %w", EnvName, err)
 	}
 
 	outputFile, err := os.OpenFile(output, os.O_APPEND|os.O_CREATE|os.O_RDWR, 0644)
